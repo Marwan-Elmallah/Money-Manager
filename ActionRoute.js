@@ -1,9 +1,10 @@
-const express = require('express');
-const { addAction, getActions } = require('./ActionController');
+const express = require("express");
+const { addAction, getActions } = require("./ActionController");
+const authMiddleware = require("./AuthMiddleware");
 
 const router = express.Router();
 
-router.post('/', addAction); // Add a new action
-router.get('/', getActions); // Get all actions for a user
+router.post("/", authMiddleware, addAction);
+router.get("/", authMiddleware, getActions);
 
 module.exports = router;
