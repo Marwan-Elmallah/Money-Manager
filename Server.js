@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use('/api/actions', require('./routes/actionRoutes'));
+app.use('/api/actions', require('./ActionRoute'));
 
 // Start server
 const PORT = process.env.PORT || 5000;
