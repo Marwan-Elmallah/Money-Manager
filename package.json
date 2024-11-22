@@ -1,8 +1,8 @@
 {
   "name": "money-manager",
   "version": "1.0.0",
-  "description": "A money management application to track income, expenses, and transfers using Node.js and MongoDB.",
-  "main": "Server.js",
+  "description": "A money manager application built with Node.js and MongoDB.",
+  "main": "server.js",
   "scripts": {
     "start": "node Server.js",
     "dev": "nodemon Server.js"
@@ -14,17 +14,16 @@
     "mongodb",
     "express"
   ],
-  "author": "Your Name",
-  "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.6.3"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
-"engines": {
-  "node": "18.x"
-}
+  "author": "Marwan Elmallah",
+  "license": "MIT"
 }
