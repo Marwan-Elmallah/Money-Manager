@@ -1,20 +1,27 @@
-const Action = require('./Actions');
+const Action = require("./Action");
 
 exports.addAction = async (req, res) => {
   try {
-    const action = new Action(req.body);
+    const { type, amount, category, description } = req.body;
+    const action = new Action({
+      type,
+      amount,
+      category,
+      description,
+      user: req.user.id,
+    });
     await action.save();
     res.status(201).json(action);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
 
 exports.getActions = async (req, res) => {
   try {
     const actions = await Action.find({ user: req.user.id });
-    res.status(200).json(actions);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.json(actions);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
