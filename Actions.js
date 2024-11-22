@@ -1,34 +1,12 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const actionSchema = new mongoose.Schema({
-  type: {
-    type: String,
-    enum: ['income', 'expense', 'transfer'],
-    required: true,
-  },
-  amount: {
-    type: Number,
-    required: true,
-    min: 0,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-  description: {
-    type: String,
-    maxlength: 255,
-  },
-  category: {
-    type: String,
-    minlength: 2,
-    default: null
-  },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
+const ActionSchema = new mongoose.Schema({
+  type: { type: String, required: true },
+  amount: { type: Number, required: true },
+  category: { type: String, required: true },
+  description: { type: String },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  date: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Action', actionSchema);
+module.exports = mongoose.model("Action", ActionSchema);
