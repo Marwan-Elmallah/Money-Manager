@@ -1,4 +1,4 @@
-const Action = require("./Action");
+const Action = require("./Actions");
 
 exports.addAction = async (req, res) => {
   try {
