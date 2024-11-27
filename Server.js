@@ -3,11 +3,18 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const authRoutes = require("./authRoutes");
 const actionRoutes = require("./actionRoutes");
+const cors = require('cors');
+
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+
+app.use(cors({
+  origin: 'https://marwan-elmallah.github.io/Money-Manager-App/' // Allow requests from your GitHub Pages URL
+}));
+
 
 // Routes
 app.use("/api/auth", authRoutes);
